@@ -6,22 +6,22 @@ var threeDays = 3*86400000; // number of milliseconds in three days
 function getData(logs)
 {
 
-	var sDate = new Date();
-	var sYear = string(sDate.getFullYear());
-	var sMonth = string(int(sDate.getMonth()) + 1);
-	var sDay = string(sDate.getDate());
-	var sHour = string(sDate.getHours());
-	var sMin = string(sDate.getMinutes());
+	var eDate = new Date();
+	var eYear = String(eDate.getFullYear());
+	var eMonth = String(eDate.getMonth() + 1);
+	var eDay = String(eDate.getDate());
+	var eHour = String(eDate.getHours());
+	var eMin = String(eDate.getMinutes());
 
-	var eDate = new Date(sDate.getTime() - threeDays);
-	var eYear = string(sDate.getFullYear());
-	var eMonth = string(int(sDate.getMonth()) + 1);
-	var eDay = string(sDate.getDate());
+	var sDate = new Date(eDate.getTime() - threeDays);
+	var sYear = String(sDate.getFullYear());
+	var sMonth = String(sDate.getMonth() + 1);
+	var sDay = String(sDate.getDate());
 
 	var root = "https://www-bd.fnal.gov/Elog/?";
 	var logQueryString = "orLogName=";
-	var dateQueryString = "startDate=" + sYear + "-" + sMonth + "-" + sDay + "+" + sHour + "%3A" + sMin + "%3A00" +
-						+ "&endDate=" +  eYear + "-" + eMonth + "-" + eDay + "+00%3A00%3A00";
+	var dateQueryString = "startDate=" +  sYear + "-" + sMonth + "-" + sDay + "+00%3A00%3A00"
+						+ "&endDate=" + eYear + "-" + eMonth + "-" + eDay + "+" + eHour + "%3A" + eMin + "%3A00";
 	
 	for(a in logs)
 	{
