@@ -33,6 +33,10 @@ body {
 	flex-basis: 5%;
 }
 
+#page #content {
+	overflow: scroll;
+}
+
 #divtwo {
 	display: none;
 }
