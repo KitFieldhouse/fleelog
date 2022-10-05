@@ -5,7 +5,6 @@ var threeDays = 3*86400000; // number of milliseconds in three days
 
 function getData(logs)
 {
-
 	var eDate = new Date();
 	var eYear = String(eDate.getFullYear());
 	var eMonth = String(eDate.getMonth() + 1);
@@ -54,7 +53,7 @@ function getData(logs)
 
 			var entriesHTML = entries.innerHTML;
 			console.log(entriesHTML);
-			document.getElementById(logs[index]).innerHTML = entriesHTML;
+			document.getElementById(logs[index]).innerHTML = "<div class='label'>" + logs[index] + "</div>" + entriesHTML;
 
 		}
 
