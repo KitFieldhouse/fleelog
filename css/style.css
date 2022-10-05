@@ -32,7 +32,8 @@ body {
 	}
 	
 	#Operations,
-	#Booster {
+	#Booster,
+	#Linac {
 	overflow: scroll;
 	height: 98%;
 	}
