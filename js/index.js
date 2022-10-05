@@ -32,6 +32,8 @@ function getData(logs)
 		req.addEventListener("load", gotData);
 		req.addEventListener("error", gotError);
 		req.open("GET", link);
+		req.overrideMimeType('text/html');
+		req.responseType = "document";
 		req.send();
 	}
 	
@@ -39,9 +41,16 @@ function getData(logs)
 
 function gotData()
 {
-	var data = this.responseText;
-	console.log(data);
-	console.log("This has been fired");
+	//var dataText = this.responseText;
+	//console.log(dataText);
+	console.log(this.responseType);
+	var dataHTML = this.responseXML;
+	var entries = dataHTML.getElementById("entries");
+	var entriesText = entries.innerHTML;
+	console.log(entriesText);
+	document.getElementById("content").innerHTML = entriesText;
+
+	
 }
 
 function gotError()
