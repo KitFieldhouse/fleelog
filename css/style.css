@@ -1,83 +1,79 @@
 body {
-	
 	background-color: black;
-}
-
-#page-wrapper {
-	margin: 0 0;
-	margin-top: -10px;
+	}
+	
+	#page-wrapper {
 	background-color: gray;
-	height: 1000px;
-}
-
-#page {
+	height: 100%;
+	border-width: 0px;
+	}
+	
+	#page {
 	
 	width: 100%;
 	margin: 0 auto;
 	display: flex;
-	padding: 3%;
-}
-
-#page > div {
+	}
+	
+	#page > div {
 	
 	height: 1000px;
-	margin: 0px 10px;
-	border-style: solid;
+	border-left-style: solid;
 	background-color: rgb(125,125,125);
 	flex: 1;
 	border-width: 3px;
 	
-}
-
-#page #sidebar {
+	}
+	
+	#page #sidebar {
 	flex-grow: 0;
 	flex-shrink: 0;
 	flex-basis: 5%;
-}
-
-#page #content {
+	}
+	
+	#page #content {
 	overflow: scroll;
-}
-
-#divtwo {
+	}
+	
+	#divtwo {
 	display: none;
-}
-
-.entry {
+	}
+	
+	.entry {
 	border-style: solid;
 	border-width: 2px;
-  margin: 10px 10px;
+	  margin: 10px 10px;
 	padding: 10px;
 	background-color: rgb(175,175,175);
 	color: black;
-}
-
-.entry .text{
+	}
+	
+	.entry .text{
 	border-top-style: solid;
 	border-left-style: solid;
 	border-width: 1px;
 	padding-top: 5px;
 	padding-left: 15px;
-}
-
-.entry button{
+	}
+	
+	.entry button{
 	display: none;
-}
-
-.entry .comments {
+	}
+	
+	.entry .comments {
 	margin-left: 20px;
-}
-
-.comments .comment {
+	}
+	
+	.comments .comment {
 	padding: 5px;
 	margin: 10px 0px;
-}
-
-.entry a {
+	}
+	
+	.entry a {
 	color: rgb(30,10,10);
 	margin-left: 10px;
-}
-
-.entry span {
+	}
+	
+	.entry span {
 	font-weight: bold;
-}
+	}
