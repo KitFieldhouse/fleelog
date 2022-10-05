@@ -31,7 +31,8 @@ body {
 	flex-basis: 5%;
 	}
 	
-	#page #content {
+	#Operations,
+	#Booster {
 	overflow: scroll;
 	}
 	

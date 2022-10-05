@@ -29,8 +29,23 @@ function getData(logs)
 		console.log(link);
 		
 		const req = new XMLHttpRequest();
-		req.addEventListener("load", gotData);
-		req.addEventListener("error", gotError);
+		const index = a;
+
+		//req.addEventListener("load", gotData);
+		//req.addEventListener("error", gotError);
+
+		req.onload = (e) => { 
+
+			console.log(req.responseType);
+			console.log(logs[a]);
+			var dataHTML = req.responseXML;
+			var entries = dataHTML.getElementById("entries");
+			var entriesText = entries.innerHTML;
+			console.log(entriesText);
+			document.getElementById(logs[index]).innerHTML = entriesText;
+
+		}
+
 		req.open("GET", link);
 		req.overrideMimeType('text/html');
 		req.responseType = "document";
@@ -39,19 +54,19 @@ function getData(logs)
 	
 }
 
-function gotData()
-{
-	//var dataText = this.responseText;
-	//console.log(dataText);
-	console.log(this.responseType);
-	var dataHTML = this.responseXML;
-	var entries = dataHTML.getElementById("entries");
-	var entriesText = entries.innerHTML;
-	console.log(entriesText);
-	document.getElementById("content").innerHTML = entriesText;
+// function gotData()
+// {
+// 	//var dataText = this.responseText;
+// 	//console.log(dataText);
+// 	console.log(this.responseType);
+// 	var dataHTML = this.responseXML;
+// 	var entries = dataHTML.getElementById("entries");
+// 	var entriesText = entries.innerHTML;
+// 	console.log(entriesText);
+// 	document.getElementById("content").innerHTML = entriesText;
 
 	
-}
+// }
 
 function gotError()
 {
@@ -60,4 +75,4 @@ function gotError()
 }
 
 
-getData(["Operations"]);
+getData(["Operations", "Booster"]);
