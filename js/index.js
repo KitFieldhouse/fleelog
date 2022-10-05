@@ -18,6 +18,7 @@ function getData(logs)
 	var sMonth = String(sDate.getMonth() + 1);
 	var sDay = String(sDate.getDate());
 
+	var elog = "https://www-bd.fnal.gov/Elog/";
 	var root = "https://www-bd.fnal.gov/Elog/?";
 	var logQueryString = "orLogName=";
 	var dateQueryString = "startDate=" +  sYear + "-" + sMonth + "-" + sDay + "+00%3A00%3A00"
@@ -39,10 +40,21 @@ function getData(logs)
 			console.log(req.responseType);
 			console.log(logs[a]);
 			var dataHTML = req.responseXML;
+
 			var entries = dataHTML.getElementById("entries");
-			var entriesText = entries.innerHTML;
-			console.log(entriesText);
-			document.getElementById(logs[index]).innerHTML = entriesText;
+
+			console.log("below is type");
+			console.log(typeof(entriesHTML));
+
+			const collection = entries.getElementsByTagName("img");
+
+			for (let i = 0; i < collection.length; i++) {
+  				collection[i].setAttribute("src", elog + collection[i].getAttribute("src"));
+			}
+
+			var entriesHTML = entries.innerHTML;
+			console.log(entriesHTML);
+			document.getElementById(logs[index]).innerHTML = entriesHTML;
 
 		}
 
