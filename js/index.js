@@ -53,7 +53,7 @@ function getData(logs)
 
 			var entriesHTML = entries.innerHTML;
 			console.log(entriesHTML);
-			document.getElementById(logs[index]).innerHTML = "<div class='label'>" + logs[index] + "</div>" + entriesHTML;
+			document.getElementById(logs[index]).innerHTML = entriesHTML;
 
 		}
 

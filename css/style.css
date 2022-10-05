@@ -34,6 +34,7 @@ body {
 	#Operations,
 	#Booster {
 	overflow: scroll;
+	height: 98%;
 	}
 	
 	#divtwo {
@@ -85,4 +86,11 @@ body {
 
 	.entry figure figcaption { /* just a temporary measure....? */
 		display: none;
+	}
+
+	.label {
+		text-align: center;
+		font-size: 32px;
+		background-color: rgb(151, 35, 58);
+		border-bottom-style: solid;
 	}
