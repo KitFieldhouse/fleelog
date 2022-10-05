@@ -2,9 +2,15 @@ body {
 	background-color: black;
 	}
 	
+	#sidebar {
+		padding: 10px;
+		font-size: 16px;
+	}
+
 	#page-wrapper {
 	background-color: gray;
 	height: 100%;
+	width: 100%;
 	border-width: 0px;
 	}
 	
@@ -28,14 +34,25 @@ body {
 	#page #sidebar {
 	flex-grow: 0;
 	flex-shrink: 0;
-	flex-basis: 5%;
+	flex-basis: 7.5%;
 	}
 	
 	#Operations,
 	#Booster,
-	#Linac {
+	#Linac,
+	#Controls,
+	#Muon,
+	#PreAcc {
 	overflow: scroll;
 	height: 98%;
+	}
+
+	#Booster-Container,
+	#Linac-Container,
+	#Controls-Container,
+	#Muon-Container,
+	#PreAcc-Container {
+		display: none;
 	}
 	
 	#divtwo {

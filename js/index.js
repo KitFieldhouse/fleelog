@@ -85,5 +85,15 @@ function gotError()
 	console.log(this.status);
 }
 
+function displayOrHideLog(log, el)
+{
+	if(el.checked == false)
+	{
+		document.getElementById(log + "-Container").style.display = "none";
+	}
+	else {
+		document.getElementById(log + "-Container").style.display = "block";
+	}
+}
 
-getData(["Operations", "Booster", "Linac"]);
+getData(["Operations", "Booster", "Linac", "Controls", "Muon", "PreAcc"]);
