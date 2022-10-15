@@ -37,26 +37,48 @@ body {
 	flex-basis: 7.5%;
 	}
 	
-	#Operations,
-	#Booster,
-	#Linac,
-	#Controls,
-	#Muon,
-	#PreAcc {
+	#Accelerator-Projects,
+    #Booster,
+    #Controls,
+    #Cryogenics,
+    #External-Beamlines,
+    #FAST,
+    #Instrumentation,
+    #Interlocks,
+    #Linac,
+    #Main-Injector,
+    #Muon,
+    #Operations,
+    #PreAcc,
+    #Proton-Improvement-Plan,
+    #Recycler,
+    #RF,
+    #Run-Coordinator,
+    #Safety,
+    #Testing {
 	overflow: scroll;
 	height: 98%;
 	}
 
-	#Booster-Container,
-	#Linac-Container,
-	#Controls-Container,
-	#Muon-Container,
-	#PreAcc-Container {
+	#Accelerator-Projects-Container,
+    #Booster-Container,
+    #Controls-Container,
+    #Cryogenics-Container,
+    #External-Beamlines-Container,
+    #FAST-Container,
+    #Instrumentation-Container,
+    #Interlocks-Container,
+    #Linac-Container,
+    #Main-Injector-Container,
+    #Muon-Container,
+    #PreAcc-Container,
+    #Proton-Improvement-Plan-Container,
+    #Recycler-Container,
+    #RF-Container,
+    #Run-Coordinator-Container,
+    #Safety-Container,
+    #Testing-Container {
 		display: none;
-	}
-	
-	#divtwo {
-	display: none;
 	}
 	
 	.entry {

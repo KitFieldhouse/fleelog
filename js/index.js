@@ -1,7 +1,25 @@
 
 var threeDays = 3*86400000; // number of milliseconds in three days, for how far back it should scrape data for each log.
 
-
+logNames = [ "Operations",
+	"Accelerator-Projects",
+	"Booster",
+	"Controls",
+	"Cryogenics",
+	"External-Beamlines",
+	"FAST",
+	"Instrumentation",
+	"Interlocks",
+	"Linac",
+	"Main-Injector",
+	"Muon",
+	"PreAcc",
+	"Proton-Improvement-Plan",
+	"Recycler",
+	"RF",
+	"Run-Coordinator",
+	"Safety",
+	"Testing"];
 
 function getData(logs)  // this function runs at the opening of the webpage and gets data from the Elog via a XMLHttpRequest.
 {
@@ -25,7 +43,7 @@ function getData(logs)  // this function runs at the opening of the webpage and 
 	
 	for(a in logs)
 	{
-		var link = root + logQueryString + logs[a] + "&" + dateQueryString; // build link to grab data from Elog
+		var link = root + logQueryString + logs[a].replaceAll("-", "+") + "&" + dateQueryString; // build link to grab data from Elog
 		console.log(link);
 		
 		const req = new XMLHttpRequest(); // start new request
@@ -49,6 +67,17 @@ function getData(logs)  // this function runs at the opening of the webpage and 
 
 			for (let i = 0; i < collection.length; i++) {
   				collection[i].setAttribute("src", elog + collection[i].getAttribute("src"));
+			}
+
+			const imageLinks = entries.getElementsByTagName("a");
+
+			for(let i = 0; i<imageLinks.length; i++)
+			{
+				if(imageLinks[i].classList.contains("fancybox-image"))
+				{
+					imageLinks[i].setAttribute("href", elog + imageLinks[i].getAttribute("href"));
+					imageLinks[i].setAttribute("target", "_blank");
+				}
 			}
 
 			var entriesHTML = entries.innerHTML;
@@ -82,4 +111,49 @@ function displayOrHideLog(log, el) // this is called from the button element in 
 	}
 }
 
-getData(["Operations", "Booster", "Linac", "Controls", "Muon", "PreAcc"]);
+
+// below will run on page load.
+
+
+
+let sidebarHTML = "";
+
+for (let i = 0; i < logNames.length; i++) // build sidebar options
+{
+	if(i == 0) // that is, if log is operations
+	{
+		sidebarHTML += "<div>" +
+					"<input type='checkbox' id='" + logNames[i] + "-button' name='" + logNames[i] + "-button' onclick=\"displayOrHideLog('" + logNames[i] + "', this)\" checked>" +
+					"<label for='" + logNames[i] + "-button'>" + logNames[i] + "</label>" +
+					"</div>";
+
+	}
+	else {
+		sidebarHTML += "<div>" +
+					"<input type='checkbox' id='" + logNames[i] + "-button' name='" + logNames[i] + "-button' onclick=\"displayOrHideLog('" + logNames[i] + "', this)\">" +
+					"<label for='" + logNames[i] + "-button'>" + logNames[i] + "</label>" +
+					"</div>";
+
+	}
+}
+
+sidebarHTML = "<div id='sidebar'>" + sidebarHTML + "</div>";
+
+
+let logDivsHTML = "";
+
+
+for (let i = 0; i < logNames.length; i++) // build sidebar options
+{
+	logDivsHTML +=  "<div id='" + logNames[i] + "-Container'>" +
+					"<div class='label'> - " + logNames[i].replaceAll("-"," ") + " - </div>" +
+					"<div id='" + logNames[i] + "'>" +
+							"CONTENT LOADING!!!!!!!!" +
+					"</div>" +
+					"</div>";
+}
+
+page = document.getElementById("page");
+page.innerHTML = sidebarHTML + logDivsHTML;
+
+getData(logNames);
